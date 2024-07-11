@@ -22,7 +22,7 @@
 
 **python中，字符串就是一系列字符，用引号扩起的都是字符串，其中单引号和双引号都就可以**\
 例：``'this is a string'``\
-or``"this is also a string"``
+或``"this is also a string"``
 
 ### 修改字符串的大小写
 
@@ -453,3 +453,121 @@ output:False
 **如何检查是否不相等**可以用!=来运算。
 
 **比较数字**可以直接使用各种数学比较。
+
+## 字典
+
+键—值对是两个相关联的值。指定键时，Python将返回与之相关联的值。键和值之间用冒号分隔，而键—值对之间用逗号分隔。在字典中，你想存储多少个键—值对都可以。\
+最简单的字典只有一个键—值对，如下述修改后的字典alien_0所示：
+
+```python
+alien_0 = {'color': 'green'}
+```
+
+这个字典只存储了一项有关alien_0的信息，具体地说是这个外星人的颜色。在这个字典中，字符串'color'是一个键，与之相关联的值为'green'。\
+
+含多个键的字典示例：
+
+```python
+alien_0 = {'color': 'green', 'points': 5} 
+print(alien_0['color']) 
+print(alien_0['points'])
+```
+---
+```python
+#访问字典中的值
+print(alien_0['color'])
+
+#添加键值对
+alien_0 = {'color': 'green', 'points': 5} 
+print(alien_0) 
+alien_0['x_position'] = 0 
+alien_0['y_position'] = 25 
+print(alien_0)
+
+#修改键值对
+alien_0['x_position']=10
+
+#删除键值对
+del alien_0['points']
+```
+---
+
+### 遍历字典
+
+#### 遍历键与值
+
+```python
+user_0 = {
+ 'username': 'efermi', 
+ 'first': 'enrico', 
+ 'last': 'fermi', 
+ }
+for key, value in user_0.items(): 
+    print("\nKey: " + key) 
+    print("Value: " + value)
+```
+遍历字典时可声明两个变量。
+
+#### 遍历所有键
+
+在不需要使用字典中的值时，方法keys()很有用。下面来遍历字典favorite_languages，并将每个被调查者的名字都打印出来：
+
+```python
+favorite_languages = { 
+ 'jen': 'python', 
+ 'sarah': 'c', 
+ 'edward': 'ruby', 
+ 'phil': 'python', 
+ }
+for name in favorite_languages.keys(): 
+    print(name.title())
+```
+#### 按顺序遍历字典中的所有键
+
+要以特定的顺序返回元素，一种办法是在for循环中对返回的键进行排序。为此，可使用函数sorted()来获得按特定顺序排列的键列表的副本：
+
+```python
+favorite_languages = { 
+ 'jen': 'python', 
+ 'sarah': 'c', 
+ 'edward': 'ruby', 
+ 'phil': 'python', 
+ } 
+for name in sorted(favorite_languages.keys()): 
+ print(name.title() + ", thank you for taking the poll.")
+```
+
+#### 遍历所有的值
+
+如果你感兴趣的主要是字典包含的值，可使用方法values()，它返回一个值列表，而不包含任何键。例如，如果我们想获得一个这样的列表，即其中只包含被调查者选择的各种语言，而不包含被调查者的名字，可以这样做：
+
+```python
+favorite_languages = { 
+ 'jen': 'python', 
+ 'sarah': 'c', 
+ 'edward': 'ruby', 
+ 'phil': 'python', 
+ } 
+print("The following languages have been mentioned:") 
+for language in favorite_languages.values(): 
+ print(language.title())
+```
+
+通过对包含重复元素的列表调用set()，可让Python找出列表中独一无二的元素，并使用这些元素来创建一个集合。
+
+```python
+ for language in set(favorite_languages.values()):
+```
+
+#### 遍历字典列表
+
+```python
+alien_0 = {'color': 'green', 'points': 5} 
+alien_1 = {'color': 'yellow', 'points': 10} 
+alien_2 = {'color': 'red', 'points': 15} 
+aliens = [alien_0, alien_1, alien_2] 
+for alien in aliens: 
+     print(alien)
+```
+
+### 嵌套
