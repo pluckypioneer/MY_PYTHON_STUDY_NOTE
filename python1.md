@@ -571,3 +571,65 @@ for alien in aliens:
 ```
 
 ### 嵌套
+
+#### 在字典中储存列表
+
+```python
+ favorite_languages = { 
+ 'jen': ['python', 'ruby'], 
+ 'sarah': ['c'], 
+ 'edward': ['ruby', 'go'], 
+ 'phil': ['python', 'haskell'], 
+ } 
+
+ for name, languages in favorite_languages.items(): 
+    print("\n" + name.title() + "'s favorite languages are:") 
+    for language in languages: 
+        print("\t" + language.title())
+```
+
+*注意：列表和字典的嵌套层级不应太多。如果嵌套层级比前面的示例多得多，很可能有更简单的解决问题的方案。*
+
+#### 在字典中储存字典
+
+```python
+users = { 
+ 'aeinstein': { 
+ 'first': 'albert', 
+ 'last': 'einstein', 
+ 'location': 'princeton', 
+ }, 
+ 'mcurie': { 
+ 'first': 'marie', 
+ 'last': 'curie', 
+ 'location': 'paris', 
+ }, 
+ } 
+ for username, user_info in users.items(): 
+    print("\nUsername: " + username) 
+    full_name = user_info['first'] + " " +user_info['last'] 
+    location = user_info['location'] 
+    print("\tFull name: " + full_name.title()) 
+    print("\tLocation: " + location.title())
+ ```
+
+## while语句
+
+示例：
+
+```python
+ while True: 
+ city = input(prompt) 
+ if city == 'quit': 
+ break 
+ else: 
+ print("I'd love to go to " + city.title() + "!")
+
+ current_number = 0 
+while current_number < 10:  
+      current_number += 1 
+    if current_number % 2 == 0: 
+    continue 
+    print(current_number)
+```
+
