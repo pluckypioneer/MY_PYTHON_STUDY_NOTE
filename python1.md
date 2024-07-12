@@ -633,3 +633,135 @@ while current_number < 10:
     print(current_number)
 ```
 
+### 用户如何选择退出循环
+
+>使用关键词的非作为while循环的ture
+
+```python
+prompt = "\nTell me something, and I will repeat it back to you:" 
+prompt += "\nEnter 'quit' to end the program. " 
+message = "" 
+while message != 'quit': 
+ message = input(prompt) 
+ print(message)
+```
+
+### 标志
+
+>我们把这个标志命名为active（可给它指定任何名称），它将用于判断程序是否应继续运行：
+
+```python
+prompt = "\nTell me something, and I will repeat it back to you:" 
+prompt += "\nEnter 'quit' to end the program. "
+active = True 
+while active: 
+    message = input(prompt) 
+if message == 'quit': 
+    active = False 
+else: 
+    print(message)
+```
+
+我们将变量active设置成了True（见），让程序最初处于活动状态。这样做简化了while语句，因为不需要在其中做任何比较——相关的逻辑由程序的其他部分处理。只要变量active为True，循环就将继续运行。
+
+### 使用break退出循环
+
+>执行break语句直接退出循环。
+
+### 在循环中使用continue
+
+执行continue语句后不执行循环内剩余的语句，而返回循环开头。
+
+### 使用while循环来处理列表和字典
+
+#### 在列表之间移动元素
+
+```python
+# 首先，创建一个待验证用户列表
+# 和一个用于存储已验证用户的空列表
+unconfirmed_users = ['alice', 'brian'，'candace'] 
+confirmed_users = [] 
+# 验证每个用户，直到没有未验证用户为止
+# 将每个经过验证的列表都移到已验证用户列表中
+while unconfirmed_users: 
+    current_user = unconfirmed_users.pop() 
+    print("Verifying user: " + current_user.title()) 
+    confirmed_users.append(current_user) 
+ # 显示所有已验证的用户
+print("\nThe following users have been confirmed:") 
+for confirmed_user in confirmed_users: 
+    print(confirmed_user.title())
+```
+
+#### 删除包含特定值的所有列表元素
+
+假设你有一个宠物列表，其中包含多个值为'cat'的元素。要删除所有这些元素，可不断运行一个while循环，直到列表中不再包含值'cat'，如下所示：
+
+```python
+pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat'] 
+print(pets) 
+while 'cat' in pets: 
+    pets.remove('cat') 
+print(pets)
+```
+
+#### 使用用户输入来填充字典
+
+```python
+responses = {}
+
+# 设置一个标志，指出调查是否继续
+polling_active = True 
+while polling_active: 
+
+# 提示输入被调查者的名字和回答
+name = input("\nWhat is your name? ") 
+response = input("Which mountain would you like to climb someday? ") 
+
+# 将答卷存储在字典中
+responses[name] = response 
+
+# 看看是否还有人要参与调查
+repeat = input("Would you like to let another person respond? (yes/ no) ") 
+if repeat == 'no': 
+ polling_active = False 
+
+# 调查结束，显示结果
+print("\n--- Poll Results ---") 
+for name, response in responses.items(): 
+    print(name + " would like to climb " +response + ".") 
+```
+
+这个程序首先定义了一个空字典（responses），并设置了一个标志（polling_active），用于指出调查是否继续。只要polling_active为True，Python就运行while循环中的代码。
+
+## input语句
+
+你使用函数input()时，都应指定清晰而易于明白的提示，准确地指出你希望用户提供什么样的信息——指出用户该输入任何信息的提示都行，如下所示：
+
+```python
+name = input("Please enter your name: ") 
+print("Hello, " + name + "!") 
+```
+
+``通过在提示末尾（这里是冒号后面）包含一个空格，可将提示与用户输入分开，让用户清楚地知道其输入始于何处。``
+
+### 使用int()将字符串转换成数字
+
+```python
+height = input("How tall are you, in inches? ") 
+height = int(height) 
+if height >= 36: 
+    print("\nYou're tall enough to ride!") 
+else:
+    print("\nYou'll be able to ride when you're a little older.")
+```
+
+### 求模运算符
+
+处理数值信息时，**求模运算符(%)** 是一个很有用的工具，它将两个数相除并返回余数：
+
+```python
+>>> 4 % 3 
+1
+```
+
