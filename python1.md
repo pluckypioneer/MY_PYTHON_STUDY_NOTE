@@ -765,3 +765,72 @@ else:
 1
 ```
 
+## 函数
+
+### 函数的定义
+
+>使用def关键字来定义函数。
+
+* 形参与实参
+* 函数与while结合
+
+### 将函数储存在模块中
+
+#### 导入整个模块
+
+>pizza.py
+
+```python
+def make_pizza(size, *toppings): 
+ """概述要制作的比萨""" 
+ print("\nMaking a " + str(size) + 
+ "-inch pizza with the following toppings:") 
+for topping in toppings: 
+ print("- " + topping)
+```
+
+接下来，我们在pizza.py所在的目录中创建另一个名为making_pizzas.py的文件，这个文件导
+入刚创建的模块，再调用make_pizza()两次：
+
+>making_pizzas.py
+
+```python
+import pizza 
+pizza.make_pizza(16, 'pepperoni') 
+pizza.make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese')
+```
+
+Python读取这个文件时，代码行import pizza让Python打开文件pizza.py，并将其中的所有函数都复制到这个程序中。你看不到复制的代码，因为这个程序运行时，Python在幕后复制这些代
+码。
+
+#### 导入特定的函数
+
+导入模块中的特定函数，这种导入方法的语法如下：
+
+```python
+from module_name import function_name
+```
+
+通过用逗号分隔函数名，可根据需要从模块中导入任意数量的函数：
+
+```python
+from module_name import function_0, function_1, function_2
+```
+
+示例：
+
+```python
+from pizza import make_pizza 
+make_pizza(16, 'pepperoni') 
+make_pizza(12, 'mushrooms', 'green peppers', 'extra cheese') 
+```
+
+若使用这种语法，调用函数时就无需使用句点。由于我们在import语句中显式地导入了函数
+make_pizza()，因此调用它时只需指定其名称。
+
+#### 使用as给函数指定别名
+
+```python
+from panda as p
+```
+
