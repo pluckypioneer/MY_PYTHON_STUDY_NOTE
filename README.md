@@ -1,6 +1,8 @@
 # 前言：
 **想自学一点python，便把自己总结的笔记放到库上，方便自己查看和保存。还有一些相关的网址链接。**
 
+[我的笔记](https://github.com/pluckypioneer/MY_PYTHON_STUDY_NOTE/blob/main/python1.md)
+
 # 相关学习网址链接
 
 [python标准库](https://docs.python.org/zh-cn/3/library/index.html)\
